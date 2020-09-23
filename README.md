@@ -21,6 +21,6 @@ Technical Issues
 
 Current Issue
 
-1-	The current issue that I still have is to manually source the env file before running the python file.  I have acknowledged this issue from day one, but I did not pay attention to it because I was using the second option. The best possible solution is to ask the group members for help, and if that does not work, I should talk to the TA's.
+1- The current issue that I still have is to manually source the env file before running the python file.  I have acknowledged this issue from day one, but I did not pay attention to it because I was using the second option. The best possible solution is to ask the group members for help, and if that does not work, I should talk to the TA's.
 
 
