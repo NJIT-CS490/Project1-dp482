@@ -1,6 +1,18 @@
 body {
-    font-family: Arial;
-    font-size: 18pt;
-    text-align: center;
     background-image: linear-gradient(to bottom right, orange, red);
 }
+
+h1 {
+    border: 2px solid white;
+    text-align: center;
+    font-size: 36pt;
+}
+
+.relative {
+  font-family: Arial;
+  font-size: 18pt;
+  position: absolute;
+  left: 120px;
+  width: auto;
+  height: auto;
+} 

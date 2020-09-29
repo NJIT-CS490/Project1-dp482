@@ -37,15 +37,31 @@ def index():
     date=(tw.created_at)
     at=(tw.user.location)
     
-    return flask.render_template(
+  response = requests.get(
+     "https://api.spoonacular.com/recipes/search?query="+select+
+     "&apiKey=" + spoonacular_key)
+    
+  json_body = response.json()
+  title=(json.dumps(json_body['results'][0]['title'], indent=2))
+  Prep_time=(json.dumps(json_body['results'][0]['readyInMinutes'],indent=2))
+  serving=(json.dumps(json_body['results'][0]['servings'],indent=2))
+  link=(json.dumps(json_body['results'][0]['sourceUrl'],indent=2))
+  number=(json.dumps(json_body['results'][0]['id'],indent=2))
+    
+  return flask.render_template(
       "food.html",
       name = select,
       tweet = tweet,
       user = user,
       time = date,
       location = at,
-      )
-      
+      title = title,
+      Prep_time = Prep_time,
+      serving = serving,
+      number=number,
+      Url=link
+      )    
+
 app.run(
     port=int(os.getenv('PORT', 8080)),
     host=os.getenv('IP', '0.0.0.0')
