@@ -27,7 +27,7 @@ spoonacular_key = os.environ['SPOONACULAR_KEY']
 @app.route('/') 
 def index():
   
-  items=["Piña colada", "Burrito","Quesadillas","Manchurian","Cake"]
+  items=["Piña colada", "Burrito","Quesadillas","Manchurian","Cake","Ice Cream","Salad"]
   select=random.choice(items)
   keyword=auth_api.search(q=select, tweet_mode='extended')
   
