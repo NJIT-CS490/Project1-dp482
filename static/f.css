@@ -17,6 +17,13 @@ h1 {
   height: auto;
 } 
 
+.a {
+    position: relative ;
+    left: 1200px;
+    width: auto;
+    height: auto;
+}
+
 .fixed{
     position: fixed;
     bottom: 36;
