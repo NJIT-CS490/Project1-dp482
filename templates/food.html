@@ -7,6 +7,9 @@
 		
 		<div class="relative">
 		<p><b>Serving size: {{serving}}</b><br><b>Preparation Time: {{Prep_time}} Minutes</b></br><b>Ingredients:</b></p>
+		{%for i in range(0, len)%}
+		<li>{{ingredients[i]}}</li> 
+		{%endfor%}
 		<p1><br><b>For more Information:{{Url}}<b></b></br></p1>
 		</div>
 		

@@ -27,7 +27,7 @@ spoonacular_key = os.environ['SPOONACULAR_KEY']
 @app.route('/') 
 def index():
   
-  items=["Pav Bhaji", "Alfredo Pasta", "Nachos", "Jalebi","Quesadilla","Enchilada","Chilli Paneer"]
+  items=["Piña colada", "Burrito","Quesadillas","Manchurian","Cake"]
   select=random.choice(items)
   keyword=auth_api.search(q=select, tweet_mode='extended')
   
@@ -47,6 +47,17 @@ def index():
   serving=(json.dumps(json_body['results'][0]['servings'],indent=2))
   link=(json.dumps(json_body['results'][0]['sourceUrl'],indent=2))
   number=(json.dumps(json_body['results'][0]['id'],indent=2))
+  
+  ingre_resp = requests.get(
+        "https://api.spoonacular.com/recipes/"+number+"/information?includeNutrition=false"
+        "&apiKey=" + spoonacular_key)
+        
+  ingre_body = ingre_resp.json()
+  ingredients=(json.dumps(ingre_body['extendedIngredients'][0]['original'],indent=2))
+    
+  extended_list=[]
+  for i in ingre_body['extendedIngredients']:
+    extended_list.append(i['original'])
     
   return flask.render_template(
       "food.html",
@@ -59,7 +70,9 @@ def index():
       Prep_time = Prep_time,
       serving = serving,
       number=number,
-      Url=link
+      Url=link,
+      len = len(extended_list),
+      ingredients=extended_list,
       )    
 
 app.run(

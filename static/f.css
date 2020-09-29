@@ -16,3 +16,15 @@ h1 {
   width: auto;
   height: auto;
 } 
+
+.fixed{
+    position: fixed;
+    bottom: 36;
+    left: 150;
+    right: 150;
+    font-family: Arial;
+    font-size: 12pt;
+    text-align: center;
+    border: 5px solid lightblue;
+    padding:  0em 1em;
+}
