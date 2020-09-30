@@ -23,3 +23,29 @@ Current Issue
 
 1. The current issue that I still have is to manually source the env file before running the python file.  I have acknowledged this issue from day one, but I did not pay attention to it because I was using the second option. The best possible solution is to ask the group members for help, and if that does not work, I should talk to the TA's.
 
+
+Part- 2 (Spoonacular API for the Recipes and other information)
+
+Follow the steps to get the correct results.
+
+1. Create a Spoonacular recipe and food API account using your email. 
+2. Get your API key and save it in the env file. (Make sure to put the env file in the .gitignore to keep your keys safe)
+3. Set up a Heroku account for the end but to make it easier it's better to do it now.
+4. Use Spoonacular API in your python file to collect information based on the category. ( Example - Search for Serving size, Search for the recipe, Search for Prep time)
+5. Create an HTML and CSS file for the layout of the collected information.
+6. After getting all the information in part 2 combine the code from part 2 to the original code.
+7. Use git branch, git commit, git merge to combine the code.
+8. Update the CSS and HTML files according to the required layout.
+9. SIDE note - ( Spoonacular recipe and food API has only 150 requests/response limit)
+10. Download npm install -g Heroku and login to it using the terminal in AWS cloud9.
+11. To make the result viewable to anyone use the Heroku method to generate a link.
+12. Use the terminal from AWS cloud9 to push all the files to Heroku.
+13. You must add your secret keys to Heroku on the Heroku website for the link to work.
+
+Technical Issue
+1 - I had an issue with the Spoonacualr account. I reached my limit and waited almost a day because it said that the user gets 150 requests/responses per day, and that didn't happen. The best solution was to create a second account and update my secret key.
+
+2 - I had an issue pushing my files. I asked my group member for help, and I was told to do a git pull and then, push the files. 
+
+
+
