@@ -43,6 +43,8 @@ Follow the steps to get the correct results.
 13. You must add your secret keys to Heroku on the Heroku website for the link to work.
 
 Technical Issue
+
+
 1 - I had an issue with the Spoonacualr account. I reached my limit and waited almost a day because it said that the user gets 150 requests/responses per day, and that didn't happen. The best solution was to create a second account and update my secret key.
 
 2 - I had an issue pushing my files. I asked my group member for help, and I was told to do a git pull and then, push the files. 
