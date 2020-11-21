@@ -1,3 +1,14 @@
+# pylint: disable=trailing-whitespace
+# pylint: disable=bad-indentation
+# pylint: disable=missing-final-newline
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=too-many-locals
+# pylint: disable=invalid-name
+# pylint: disable=unused-variable
+# pylint: disable=invalid-envvar-default
+# pylint: disable=unused-import
+# pylint: disable=wrong-import-order
 import tweepy
 import flask
 import random
