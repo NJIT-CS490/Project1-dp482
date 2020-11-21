@@ -38,7 +38,7 @@ spoonacular_key = os.environ['SPOONACULAR_KEY']
 @app.route('/') 
 def index():
   
-  items=["Piña colada", "Burrito","Quesadillas","Manchurian","Cake","Ice Cream","Salad"]
+  items=["Piña colada", "Burrito","Quesadillas","Manchurian","Cake","Ice Cream","Salad","kadvukarelu"]
   select=random.choice(items)
   keyword=auth_api.search(q=select, tweet_mode='extended')
   
@@ -53,38 +53,43 @@ def index():
      "&apiKey=" + spoonacular_key)
     
   json_body = response.json()
-  title=(json.dumps(json_body['results'][0]['title'], indent=2))
-  Prep_time=(json.dumps(json_body['results'][0]['readyInMinutes'],indent=2))
-  serving=(json.dumps(json_body['results'][0]['servings'],indent=2))
-  link=(json.dumps(json_body['results'][0]['sourceUrl'],indent=2))
-  number=(json.dumps(json_body['results'][0]['id'],indent=2))
   
-  ingre_resp = requests.get(
+  if json_body['results'] == []:
+    print("Please try again")
+    return 'Refresh the Page'
+  else:
+      title=(json.dumps(json_body['results'][0]['title'], indent=2))
+      Prep_time=(json.dumps(json_body['results'][0]['readyInMinutes'],indent=2))
+      serving=(json.dumps(json_body['results'][0]['servings'],indent=2))
+      link=(json.dumps(json_body['results'][0]['sourceUrl'],indent=2))
+      number=(json.dumps(json_body['results'][0]['id'],indent=2))
+  
+      ingre_resp = requests.get(
         "https://api.spoonacular.com/recipes/"+number+"/information?includeNutrition=false"
         "&apiKey=" + spoonacular_key)
         
-  ingre_body = ingre_resp.json()
-  ingredients=(json.dumps(ingre_body['extendedIngredients'][0]['original'],indent=2))
+      ingre_body = ingre_resp.json()
+      ingredients=(json.dumps(ingre_body['extendedIngredients'][0]['original'],indent=2))
     
-  extended_list=[]
-  for i in ingre_body['extendedIngredients']:
-    extended_list.append(i['original'])
+      extended_list=[]
+      for i in ingre_body['extendedIngredients']:
+        extended_list.append(i['original'])
     
-  return flask.render_template(
-      "food.html",
-      name = select,
-      tweet = tweet,
-      user = user,
-      time = date,
-      location = at,
-      title = title,
-      Prep_time = Prep_time,
-      serving = serving,
-      number=number,
-      Url=link,
-      len = len(extended_list),
-      ingredients=extended_list,
-      )    
+      return flask.render_template(
+          "food.html",
+        name = select,
+        tweet = tweet,
+        user = user,
+        time = date,
+        location = at,
+        title = title,
+        Prep_time = Prep_time,
+        serving = serving,
+        number=number,
+        Url=link,
+        len = len(extended_list),
+        ingredients=extended_list,
+        )    
 
 app.run(
     port=int(os.getenv('PORT', 8080)),
